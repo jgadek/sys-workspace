@@ -1,0 +1,11 @@
+APP
+
+<button (click)="modals.delete.show.next()">Confirm</button>
+<lib-dynamic-modal
+    [confirm]="true"
+    [manager]="modals.delete"
+    [title]="'Title'"
+    (submit)="onAlert('submit'); modals.delete.hide.next()"
+>
+  <strong>Description</strong>
+</lib-dynamic-modal>

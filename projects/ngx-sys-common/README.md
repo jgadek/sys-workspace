@@ -1,3 +1,8 @@
+# Start
+
+1. add style 
+`"node_modules/bootstrap/dist/css/bootstrap.css"` to angular.json
+
 # NgxSysCommon
 
 This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.2.14.
