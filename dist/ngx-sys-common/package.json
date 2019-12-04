@@ -1,0 +1,23 @@
+{
+  "name": "@ngx/sys-common",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "@angular/common": "^8.2.14",
+    "@angular/core": "^8.2.14",
+    "ngx-bootstrap": "^5.0.0",
+    "bootstrap": "^4.3.1"
+  },
+  "main": "bundles/ngx-sys-common.umd.js",
+  "module": "fesm5/ngx-sys-common.js",
+  "es2015": "fesm2015/ngx-sys-common.js",
+  "esm5": "esm5/ngx-sys-common.js",
+  "esm2015": "esm2015/ngx-sys-common.js",
+  "fesm5": "fesm5/ngx-sys-common.js",
+  "fesm2015": "fesm2015/ngx-sys-common.js",
+  "typings": "ngx-sys-common.d.ts",
+  "metadata": "ngx-sys-common.metadata.json",
+  "sideEffects": false,
+  "dependencies": {
+    "tslib": "^1.9.0"
+  }
+}

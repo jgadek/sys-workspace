@@ -1,8 +1,9 @@
 import {Component, EventEmitter, Input, OnDestroy, OnInit, Output, TemplateRef, ViewChild} from '@angular/core';
 import {DynamicModalManager} from './dynamic-modal.manager';
 import {Subscription} from 'rxjs';
-import {DynamicModalShowActionInterface} from './dynamic-modal.show-action.interface';
+
 import {BsModalRef, BsModalService} from 'ngx-bootstrap';
+import {IDynamicModalShowAction, IDynamicModalShowActionParams} from './dynamic-modal.interfaces';
 
 @Component({
   selector: 'lib-dynamic-modal',
@@ -13,16 +14,14 @@ export class DynamicModalComponent implements OnInit, OnDestroy {
   @Input() title: string;
   @Input() confirm: boolean;
   @Input() modalClass: any = 'card-body';
-
   @Input() yesButtonText = 'Yes';
   @Input() noButtonText = 'No';
-
   @Input() manager: DynamicModalManager;
 
   @Output() actionDone = new EventEmitter();
   @Output() submit = new EventEmitter();
 
-  public params: {text: string, body: any};
+  public params: IDynamicModalShowActionParams;
   public modalRef: BsModalRef;
 
   private subs: Subscription[] = [];
@@ -33,9 +32,8 @@ export class DynamicModalComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.subs.push(
-      this.manager.show.subscribe((value: DynamicModalShowActionInterface | null) => {
-        this.params = value ? value.params : {};
-        this.openModal(value ? value.config : {});
+      this.manager.show.subscribe((value: IDynamicModalShowAction | null) => {
+        this.openModal(value);
       })
     );
 
@@ -54,7 +52,10 @@ export class DynamicModalComponent implements OnInit, OnDestroy {
     this.submit.next(this.params);
   }
 
-  public openModal(config = {}) {
+  public openModal(value: IDynamicModalShowAction | null) {
+    this.params = value ? value.params : {};
+
+    const config = value ? value.params : {};
     const modalDefaultConfig = {
       backdrop: true,
       ignoreBackdropClick: true
