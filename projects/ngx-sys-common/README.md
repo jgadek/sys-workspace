@@ -3,6 +3,52 @@
 1. add style 
 `"node_modules/bootstrap/dist/css/bootstrap.css"` to angular.json
 
+| Input | Type | Default | Description |
+| --- | --- | --- | --- |
+| title | string  | null | title |
+| confirm | boolean  | false | show confirm modal |
+| modalClass | string  | card-body | Modal class |
+| yesButtonText | string  | Yes |  Agree button form confirm modal |
+| noButtonText | string  | No | Disagree button form confirm modal |
+| manager | DynamicModalManager  | null | Action manager for modal |
+
+
+
+
+| Output | Return | Description |
+| --- | --- | --- |
+| actionDone | true | List all new or modified files |
+| submit | any | Return params passed to show modal |
+
+
+
+
+#Methods 
+
+DynamicModalManager
+
+| Method | Type | Default | Params |
+| --- | --- | --- | --- |
+| show | Subject  | Subject | IDynamicModalShowAction or null |
+| hide | Subject  | Subject | null |
+
+IDynamicModalShowAction
+
+| Name | Type | Default | Description |
+| --- | --- | --- | --- |
+| config | any  | {} | Bootstrap modal config |
+| params | IDynamicModalShowActionParams  | {} | any |
+
+
+IDynamicModalShowActionParams
+
+| Name | Type | Default | Description |
+| --- | --- | --- | --- |
+| title | string  | null |  null |
+| body | any  | null | null |
+
+
+
 # NgxSysCommon
 
 This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.2.14.
