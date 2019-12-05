@@ -1,6 +1,6 @@
-#Publish
+#Lib deploy
 
-Run `npm run package`
+Run `sh deploy.sh "commit name"`
 
 # LibWorkspace
 
